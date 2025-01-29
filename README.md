@@ -1,5 +1,5 @@
 # UNO-Online
-This is a multiplayer UNO game (8 servers, each server can host maximum of 8 players)
+This is a multiplayer UNO game (8 servers, each server can host maximum of 4 players)
 We used NodeJS, and websockets to connect everything to their respective servers
 
 Took us about 2-weeks to make, after-school and during-school hours.
