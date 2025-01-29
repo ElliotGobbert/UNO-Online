@@ -6,3 +6,5 @@ Took us about 2-weeks to make, after-school and during-school hours.
 We weren't fully aware of coding and commenting conventions, which is why comments and code formatting may be extremely inconsistent in many sections
 
 This was also coded on replit.com, but later uploaded to Github, therefore there are no other branches/long history of changes.
+
+Each backend is essentially identical to each other
