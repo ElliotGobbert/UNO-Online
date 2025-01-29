@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>UNO Online</title>
+	<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" />
+	<link href="images/unoImage.png" rel="icon" type="image/x-icon" />
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<link href="cardStyle.css" rel="stylesheet" type="text/css" />
+	<link href="uiStyle.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div id=startingPage>
+		<!-- First Page -->
+		<select name="serverChoices" id="serverChoices" class="dropdown ">
+            <option value="Server 1">Server 1</option>
+			<option value="Server 2">Server 2</option>
+            <option value="Server 3">Server 3</option>
+            <option value="Server 4">Server 4</option>
+            <option value="Server 5">Server 4</option>
+            <option value="Server 6">Server 6</option>
+            <option value="Server 7">Server 7</option>
+            <option value="Server 8">Server 8</option>
+		</select>
+		<input type=text id=usernameInput class="textbox" placeholder="Enter a username..." />
+        
+        <div class="scroller">
+          <div class="scroller-content" id="scrollerContent">
+              <!-- LEAVE THIS EMPTY DIV, IMPORTANT -->
+            <div class="item"></div>
+          </div>
+        </div>
+        <div id=whoIsTyping class=typing-indicator></div>
+        <input type=text id=chatTextInput class="chat-textbox" placeholder="Type in chat..." />
+        <button type=button id=messageButton class=actionButtons>Add to chat</button>
+
+        
+		<button type=button id=connectButton class=actionButtons>Connect</button>
+		<button type=button id=startButton class=startGameButton>Start Game</button>
+		<h1 id=creditsLabel class=usernames> Credits: Elliot Gobbert, Timothy Cai, Devin Yildirim, Luis Valerio</h1>
+		<h1 id=playerCountLabel>
+			<sup id=topFraction>N</sup>&frasl;<sub id=bottomFraction>A</sub> Players
+		</h1>
+		<!-- wait why have we stuck this script in the HTML -->
+		<script>
+
+			playerCountLabel.style.top = ((window.innerHeight * .45) - 100) + "px";
+			function buttonNoise() {//Called by serverChoices, textInput, connectButton, startButton
+				let buttonClick = new Audio("audio/buttonselect.mp3");
+				buttonClick.volume = .00;
+				if (audio) {//If audio is allowed -->
+					buttonClick.volume = 0.03;
+				}
+				buttonClick.play();
+			}
+			document.getElementById("serverChoices").addEventListener("click", buttonNoise);
+			document.getElementById("textInput").addEventListener("click", buttonNoise);
+			document.getElementById("connectButton").addEventListener("click", buttonNoise);
+			document.getElementById("startButton").addEventListener("click", buttonNoise);
+		</script>
+
+
+		<!-- This div is the main page, its just a div that we show visible/not visible, if you want something to do, try centering these things/making it look nicer, the buttons look very 70s-ish, ye thats about it -->
+	</div>
+	<button type=button id=audioButton> <img src="images/audioSymbol.png" id=audioButtonImage></button>
+	<!--
+	<button type=button id=placeCardButton>Place Card</button>
+	<button type=button id=drawCardButton>Draw Card</button>
+	<button type=button id=finishTurnButton>Finish Turn</button>
+	<button type=button id=changeColorButton>Change Color</button>
+	<button type=button id=activateUNOButton>Activate UNO</button>
+	<button type=button id=unoResponseButton>UNO Response</button> -->
+
+	
+	<!-- set the visibility = visible/hidden depending on the circumstances add the class winnerGlowingEffect or loserGlowingEffect to "gameOverButton", based on their id; edit "winnerInfo" to show which username won, and make clicking this button ("gameOverButton" return to the menu -->
+	<button type="button" id=gameOverButton class="actionButtons">
+		<h1 id=gameOverText> GAME OVER! </h1>
+		<br>
+		<h1 id=winnerInfo>Winner: exampleUsername</h1>
+		<br>
+		<h1 id=returnToMenuNotification> Return to Menu </h1>
+	</button>
+	<div id=gamePage>
+		<!-- Second Page -->
+
+		<!--<button type="button" id="addButton" class="actionButtons">
+			Add card to deck
+		</button>
+
+		<button type="button" id="flipButton" class="actionButtons">
+			Flip random card onto stack
+		</button>
+
+		<button type="button" id="glowButton" class="actionButtons">
+			Make random username glow
+		</button>
+
+		<button type="button" id="flipArrowsButton" class="actionButtons">
+			Flip Arrows
+		</button>
+
+		<button type="button" id="unoPopUpButton" class="actionButtons">
+			Trigger UNO pop-up
+		</button>
+
+		<button type="button" id="showColorButtonsButton" class="actionButtons">
+			Trigger Color Buttons
+		</button> -->
+
+
+		<button type="button" id="unoButton" class="actionButtons">UNO!</button>
+		<button type="button" id="color1" class="colorChangePopUpColor">RED</button>
+		<button type="button" id="color2" class="colorChangePopUpColor">BLUE</button>
+		<button type="button" id="color3" class="colorChangePopUpColor">YELLOW</button>
+		<button type="button" id="color4" class="colorChangePopUpColor">GREEN</button>
+
+		<div id="timer">
+			<div id="timerNumber"></div>
+			<svg>
+				<circle id="timerCircle" r="18" cx="20" cy="20"></circle>
+			</svg>
+		</div>
+
+		<button type="button" id="doneButton" class="actionButtons">DONE</button>
+
+		<button type="button" id="sortButton" class="actionButtons">SORT</button>
+
+		<img src="images/turnArrow.png" id="arrow1" class="arrow" class="centerpiece" />
+		<img src="images/turnArrow.png" id="arrow2" class="arrow" class="centerpiece" />
+		<img src="images/turnArrow.png" id="arrow3" class="arrow" class="centerpiece" />
+		<img src="images/turnArrow.png" id="arrow4" class="arrow" class="centerpiece" />
+
+		<div id="pileHolder">
+			<div id="pile" class="droppile"></div>
+			<div id="pileBackground" class="droppileBackground"></div>
+		</div>
+
+		<h1 id="username0" class="usernames">Username0</h1>
+		<h1 id="username1" class="usernames">Username1</h1>
+		<h1 id="username2" class="usernames">Username2</h1>
+		<h1 id="username3" class="usernames">Username3</h1>
+
+	</div>
+	<script src="game.js"></script>
+	<script src="cardScript.js"></script>
+	<script src="flippable.js"></script>
+	<script src="handScript.js"></script>
+	<script src="uiScript.js"></script>
+	<script src="timer.js"></script>
+	<script src="script.js"></script>
+	<script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+</body>
+
+</html>

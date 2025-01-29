@@ -1,0 +1,581 @@
+html {
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+body {
+
+	background: radial-gradient(ellipse at center, #0067AD 0, #00223D 100%);
+
+	/* 0067AD  --> darkish blue*/
+}
+
+#audioButton {
+	position: absolute;
+	top: 2%;
+	left: 93%;
+	height: 5%;
+	width: 5%;
+	padding: 0;
+	border: none;
+	background: none;
+}
+
+#audioButtonImage {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	height: 100%;
+	width: 100%;
+	-webkit-filter: invert(100%);
+	/* Safari/Chrome */
+	filter: invert(100%);
+}
+
+.usernames {
+	font-family: "Lucida Console", Monaco, monospace;
+	color: white;
+	font-weight: 100;
+	opacity: .5;
+}
+
+#username0 {
+	/*These usernames go clockwise */
+	position: absolute;
+	top: 68%;
+	left: 25%;
+}
+
+#username1 {
+	position: absolute;
+	top: 45%;
+	right: 5%;
+	rotate: 90deg;
+	visibility: hidden;
+}
+
+#username2 {
+	position: absolute;
+	top: 18%;
+	left: 45%;
+	visibility: hidden;
+}
+
+#username3 {
+	position: absolute;
+	top: 45%;
+	left: 5%;
+	rotate: 270deg;
+	visibility: hidden;
+}
+
+#sortButton {
+	position: absolute;
+	top: 70%;
+	right: 12%;
+}
+
+#doneButton {
+	position: absolute;
+	top: 70%;
+	right: 23.5%;
+	visibility: hidden;
+}
+
+#unoButton {
+	position: absolute;
+	visibility: hidden;
+	top: 10%;
+	left: 10%;
+
+	height: 80%;
+	width: 80%;
+	z-index: 1000;
+	font-size: 300px;
+}
+
+#gameOverButton,
+.gameOverButton,
+.winnerButton,
+.loserButton {
+	position: absolute;
+	visibility: hidden;
+	top: 10%;
+	left: 10%;
+	/* white-space:wrap; */
+	height: 80%;
+	width: 80%;
+	z-index: 1000;
+	display: block;
+	/* font-size: 500%; */
+	color: #fff;
+	text-align: center;
+
+}
+
+
+
+.loserEffect {
+	/* -webkit-animation: loserGameOverGlow 1s ease-in-out infinite alternate;
+	-moz-animation: loserGameOverGlow 1s ease-in-out infinite alternate;
+	animation: loserGameOverGlow 1s ease-in-out infinite alternate; */
+	background: radial-gradient(ellipse at center, #474747 0, black 100%);
+}
+
+.winnerEffect {
+	-webkit-animation: winnerGameOverGlow 1s ease-in-out infinite alternate;
+	-moz-animation: winnerGameOverGlow 1s ease-in-out infinite alternate;
+	animation: winnerGameOverGlow 1s ease-in-out infinite alternate;
+	background: radial-gradient(ellipse at center, #c49d45 0, #eddb83 100%);
+}
+
+#gameOverText {
+	font-size: 680%;
+}
+
+#winnerInfo {
+	font-size: 450%;
+	font-family: bubble;
+	/* have to use bubble font, remember, solenza doesn't have a lot of characters */
+}
+
+#returnToMenuNotification {
+	font-size: 60%;
+}
+
+/* Putting in shining effect when it's their turn*/
+.glowingEffect {
+	color: #fff;
+	text-align: center;
+	-webkit-animation: glow 1s ease-in-out infinite alternate;
+	-moz-animation: glow 1s ease-in-out infinite alternate;
+	animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes loserGameOverGlow {
+	from {
+		box-shadow: 0 0 10px black, 0 0 20px black, 0 0 30px black, 0 0 40px black, 0 0 50px black, 0 0 60px black, 0 0 70px black;
+	}
+
+	to {
+		box-shadow: 0 0 20px black, 0 0 30px black, 0 0 black, 0 0 50px black, 0 0 60px black, 0 0 70px black, 0 0 80px black;
+	}
+}
+
+@-webkit-keyframes winnerGameOverGlow {
+	from {
+		box-shadow: 0 0 10px #eddb83, 0 0 20px #eddb83, 0 0 30px #eddb83, 0 0 40px #eddb83, 0 0 50px #eddb83, 0 0 60px #eddb83, 0 0 70px #eddb83;
+	}
+
+	to {
+		box-shadow: 0 0 20px #eddb83, 0 0 30px #eddb83, 0 0 #eddb83, 0 0 50px #eddb83, 0 0 60px #eddb83, 0 0 70px #eddb83, 0 0 80px #eddb83;
+	}
+}
+
+@-webkit-keyframes glow {
+	from {
+		text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px white, 0 0 40px white, 0 0 50px white, 0 0 60px white, 0 0 70px white;
+	}
+
+	to {
+		text-shadow: 0 0 20px #fff, 0 0 30px white, 0 0 40px white, 0 0 50px white, 0 0 60px white, 0 0 70px white, 0 0 80px white;
+	}
+}
+
+#playerHand {
+	position: absolute;
+	top: 200px;
+	left: 200px;
+}
+
+#pileHolder {
+	position: absolute;
+	top: 35%;
+	left: 43%;
+}
+
+.droppile {
+	width: 70px;
+	height: 120px;
+	position: absolute;
+	top: 20px;
+	left: 52px;
+	border-style: dashed;
+	margin: 10px;
+	padding: 10px;
+}
+
+.droppileBackground {
+	width: 175px;
+	height: 160px;
+	position: absolute;
+	z-index: -10000;
+
+	background: white;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 50px;
+	box-shadow: 0px 10px;
+}
+
+.arrow {
+	position: absolute;
+	height: 150px;
+	width: 150px;
+	opacity: .3;
+	user-select: none;
+}
+
+#arrow1 {
+	top: 55%;
+	left: 55%;
+	rotate: 0deg;
+}
+
+#arrow2 {
+	top: 55%;
+	left: 35%;
+	rotate: 90deg;
+}
+
+#arrow3 {
+	top: 25%;
+	left: 35%;
+	rotate: 180deg;
+}
+
+#arrow4 {
+	top: 25%;
+	left: 55%;
+	rotate: 270deg;
+}
+
+
+
+
+
+/* CSS for all the buttons we use */
+.actionButtons,
+.startGameButton,
+.textbox,
+.dropdown,
+.chatText {
+	/* position: absolute; */
+	align-items: center;
+	background-color: #1d78d3;
+	border: 0;
+	border-radius: 50px;
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-flex;
+	/* font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif; */
+	/* font-family: 'Cabin'; */
+	/* font-family: Impact,Haettenschweiler,Franklin Gothic Bold,Charcoal,Helvetica Inserat,Bitstream Vera Sans Bold,Arial Black,sans serif;  */
+	font-family: solenza;
+	font-size: 20px;
+	font-weight: 600;
+	justify-content: center;
+	line-height: 20px;
+	/* max-width: 480px; */
+	min-height: 40px;
+	min-width: 0px;
+	overflow: hidden;
+	padding: 0px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	touch-action: manipulation;
+	transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+	user-select: none;
+	-webkit-user-select: none;
+	vertical-align: middle;
+}
+
+#serverChoices {
+	font-family: bubble;
+	font-size: 35px;
+}
+
+
+
+.dropdown {
+	background-color: #ede8e8;
+	color: #383838;
+}
+
+.textbox {
+	background-color: #ebebeb;
+	opacity: 0.8;
+	color: #3e3c3c;
+	font-size: 15px;
+}
+
+.textbox:focus {
+	background-color: #ede8e8;
+	opacity: 0.95;
+}
+
+.startGameButton {
+	background-color: #40b22a;
+}
+
+@font-face {
+	font-family: solenza;
+	src: url(solenza.regular.ttf);
+}
+
+.actionButtons:hover,
+.actionButtons:focus {
+	background-color: #16437E;
+	color: #ffffff;
+}
+
+.actionButtons:active {
+	background: #09223b;
+	color: rgb(255, 255, 255, .7);
+}
+
+.actionButtons:disabled {
+	cursor: not-allowed;
+	background: rgba(0, 0, 0, .08);
+	color: rgba(0, 0, 0, .3);
+}
+
+.scroller {
+	overflow: auto;
+	height: 100px;
+	display: flex;
+	flex-direction: column-reverse;
+	overflow-anchor: auto !important;
+}
+
+/*
+.scroller .scroller-content .item {
+    height: 20px;
+    transform: translateZ(0);
+    
+} 
+*/
+
+/* chat stuff here (testing) */
+.scroller {
+	position: absolute;
+	top: 61%;
+	left: 1%;
+	display: flex;
+	overflow: auto;
+	flex-direction: column-reverse;
+	overflow-anchor: auto !important;
+
+
+	color: white;
+	font-size: 12px;
+	/* font-family: bubble; */
+	font-family: "Lucida Console", Monaco, monospace;
+	height: 25%;
+	width: 25%;
+	border: 2px;
+	border-style: solid;
+	border-color: black;
+	/* background-color:gray; */
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: 15px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+
+
+	/* opacity: .3; */
+}
+
+.chat-textbox {
+    position: absolute;
+    top: 90%;
+    left: 1%;
+    color: white;
+    font-size: 12px;
+    /* font-family: bubble; */
+    font-family: "Lucida Console", Monaco, monospace;
+    height: 2%;
+    width: 25%;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    /* background-color:gray; */
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.scroller .scroller-content .item {
+
+	height: 20px;
+	transform: translateZ(0);
+    
+}
+
+/* X and Y are typing... */
+.typing-indicator {
+    font-family: "Lucida Console", Monaco, monospace;
+    color:white; /* we can change color later */
+    font-size: 12px;
+    position: absolute;
+    top: 88%;
+    left: 1.5%;
+}
+
+#typers {
+	position: absolute;
+	background-color: #c30a01;
+	width: 100%;
+	height: 7%;
+	top: 93%;
+	text-align: left;
+}
+
+#listOfTexts {
+	/* position:absolute;
+	top: 0%;
+	left:0%; */
+	width: 90%;
+	height: 20%;
+	font-size: 10px;
+	list-style: none;
+	text-align: left;
+
+}
+
+.lineBreaks {
+	/* width: 400px; */
+	/* text-decoration: underline; */
+}
+
+.usernameChatInformation {
+	color: white;
+	/*Temporary, should be based on username[index]*/
+	display: inline;
+	font-size: 10px;
+}
+
+#yourName {
+	position: absolute;
+	top: 80%;
+	left: 0%;
+	width: 25%;
+	height: 20%;
+}
+
+#chatInput {
+	background: absolute;
+	border: none;
+	position: absolute;
+	top: 80%;
+	left: 30%;
+	width: 70%;
+	height: 20%;
+}
+
+usernameInput::placeholder {
+	color: white;
+	opacity: .5;
+	/* Firefox */
+	/* font-family: bubble; */
+	font-size: 25px;
+	font-family: bubble;
+}
+=
+
+#timer {
+	position: absolute;
+	margin: auto;
+	/* margin-top: 100px; */
+	top: 70%;
+	left: 50%;
+	height: 40px;
+	width: 40px;
+	text-align: center;
+	visibility: hidden;
+}
+
+#timerNumber {
+	color: white;
+	display: inline-block;
+	line-height: 40px;
+	font-family: 'Cabin';
+	font-size: 20px;
+	/* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -3px 3px 0 #000, 1px 1px 0 #000; */
+}
+
+svg {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 40px;
+	height: 40px;
+	transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+svg circle {
+	stroke-dasharray: 113px;
+	stroke-dashoffset: 0px;
+	stroke-linecap: round;
+	stroke-width: 5px;
+	stroke: white;
+	fill: none;
+	/* animation: countdown 10s linear infinite forwards; */
+}
+
+/* @keyframes countdown {
+	from {
+		stroke-dashoffset: 0px;
+	}
+
+	to {
+		stroke-dashoffset: 113px;
+	}
+} */
+
+
+.colorChangePopUpColor {
+	position: absolute;
+	top: 120%;
+	left: 120%;
+	z-index: 1000;
+	border-radius: 25px;
+	border: 10px solid white;
+	font-family: solenza;
+	text-align: center;
+	font-size: 6em;
+	color: white;
+}
+
+#color1 {
+	height: 40%;
+	width: 40%;
+	background-color: #c30a01;
+}
+
+#color2 {
+	height: 40%;
+	width: 40%;
+	background-color: #294fda;
+}
+
+#color3 {
+	height: 40%;
+	width: 40%;
+	background-color: #fcdb01;
+}
+
+#color4 {
+	height: 40%;
+	width: 40%;
+	background-color: #0cab0c;
+}

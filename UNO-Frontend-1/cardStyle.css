@@ -1,0 +1,237 @@
+/* Generating a Card here */
+
+.card {
+	position: relative;
+	text-align: center;
+	color: white;
+	height: 130px;
+	width: 85px;
+	top: 0;
+	transition: 0.2s;
+	user-select: none;
+}
+
+
+/* .cardHolder.slideLeft {
+	position:relative;
+	animation-name: slideLeftAnimation;
+	animation-duration: .5s;
+	animation-iteration-count: 2;
+	animation-fill-mode: forwards;
+	
+	
+}
+@keyframes slideLeftAnimation {
+
+	from {
+		top: 0px;
+		left: 0px;
+	}
+
+	to {
+		top:40px;
+		left: 40px;
+	}
+}
+.cardHolder.slideRight {
+	position: absolute;
+	right: 40px;
+} */
+
+/*Replaced by JavaScript to fix dragging*/
+/* .card:hover {
+	position: relative;
+	top: -20px;
+} */
+
+.cardHolder {
+	position: absolute;
+	/* top:200px;
+	left:200px; */
+	user-select: none;
+}
+
+.cardImage {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	height: 120px;
+	width: 75px;
+	user-select: none;
+}
+
+/* TODO:  hand-of cards, highlighting card(bringing it forward, on hover), and dragging-and-dropping */
+.cardEdge {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 130px;
+	width: 85px;
+	user-select: none;
+}
+
+.cardText {
+	height: 55px;
+	width: 40px;
+	position: absolute;
+	top: 25%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	font-family: 'Cabin';
+	font-size: 45px;
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -3px 3px 0 #000, 1px 1px 0 #000;
+	user-select: none;
+}
+
+.cardSymbol {
+	height: 115px;
+	width: 85px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-45%, -54%);
+	rotate: -4.75deg;
+	user-select: none;
+}
+
+.cardUpperLeftNumber {
+	height: 55px;
+	width: 40px;
+	position: absolute;
+	top: 22px;
+	left: 20px;
+	transform: translate(-50%, -50%);
+	color: white;
+	font-family: 'Cabin';
+	font-size: 20px;
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -3px 3px 0 #000, 1px 1px 0 #000;
+	user-select: none;
+}
+
+.cardBottomRightNumber {
+	height: 55px;
+	width: 40px;
+	position: absolute;
+	bottom: 22px;
+	right: 20px;
+	transform: translate(-50%, -50%);
+	color: white;
+	font-family: 'Cabin';
+	font-size: 20px;
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -3px 3px 0 #000, 1px 1px 0 #000;
+	rotate: 180deg;
+	user-select: none;
+}
+
+.cardUpperLeftSymbol {
+	position: absolute;
+	height: 60px;
+	width: 45px;
+	top: -10px;
+	left: -3px;
+	user-select: none;
+}
+
+.cardBottomRightSymbol {
+	position: absolute;
+	height: 60px;
+	width: 45px;
+	bottom: -10px;
+	right: -3px;
+	rotate: 180deg;
+	user-select: none;
+}
+
+.wildCardUpperLeftSymbol {
+	position: absolute;
+	height: 33px;
+	width: 25px;
+	top: 7px;
+	left: 7px;
+	user-select: none;
+}
+
+.wildCardBottomRightSymbol {
+	position: absolute;
+	height: 33px;
+	width: 25px;
+	bottom: 7px;
+	right: 7px;
+	rotate: 180deg;
+	user-select: none;
+}
+
+
+/* Making animation for the card here */
+
+.flip-card {
+	position: absolute;
+	background-color: transparent;
+	width: 50px;
+	height: 100px;
+	perspective: 1000px;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+	/* Remove this if you don't want the 3D effect */
+	user-select: none;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+	top: 0px;
+	left: 30px;
+	/* transform: rotate(90deg); */
+	user-select: none;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card.addedClass .flip-card-inner {
+	/* transform: rotateY(180deg); */
+	animation-name: cardAnimation;
+	animation-duration: 1.5s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	/* animation-direction: alternate; */
+}
+
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+	position: absolute;
+	/* Commenting this out seems to have fixed it in Firefox? */
+	/* width: 100%;
+	height: 100%; */
+
+	-webkit-backface-visibility: hidden;
+	/* Safari */
+	backface-visibility: hidden;
+	user-select: none;
+}
+
+/* Style the front side */
+.flip-card-front {
+	transform: rotateY(180deg);
+}
+
+
+
+@keyframes cardAnimation {
+	from {
+		top: 0px;
+		left: 30px;
+	}
+
+	to {
+		transform: rotateY(180deg);
+		/* position: absolute; */
+		top: 0px;
+		left: 400px;
+	}
+}

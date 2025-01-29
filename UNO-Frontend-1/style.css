@@ -1,0 +1,122 @@
+html {
+	height: 100%;
+	width: 100%;
+}
+
+#gamePage {
+	display: none;
+}
+
+a.actionButtons {
+	-webkit-appearance: button;
+	-moz-appearance: button;
+	appearance: button;
+	text-decoration: none;
+	color: initial;
+	/* position: absolute; */
+	align-items: center;
+	background-color: #1d78d3;
+	border: 0;
+	border-radius: 50px;
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-flex;
+	/* font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif; */
+	/* font-family: 'Cabin'; */
+	/* font-family: Impact,Haettenschweiler,Franklin Gothic Bold,Charcoal,Helvetica Inserat,Bitstream Vera Sans Bold,Arial Black,sans serif;  */
+	font-family: solenza;
+	font-size: 20px;
+	font-weight: 600;
+	justify-content: center;
+	line-height: 20px;
+	/* max-width: 480px; */
+	min-height: 40px;
+	min-width: 0px;
+	overflow: hidden;
+	padding: 0px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	touch-action: manipulation;
+	transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+	user-select: none;
+	-webkit-user-select: none;
+	vertical-align: middle;
+}
+
+#startButton {
+	position: absolute;
+	top: 60%;
+	left: 41%;
+}
+
+#connectButton {
+	position: absolute;
+	top: 45%;
+	left: 60%;
+}
+
+#usernameInput {
+	position: absolute;
+	top: 45%;
+	left: 38%;
+}
+
+#serverChoices {
+	position: absolute;
+	top: 45%;
+	left: 25%;
+}
+
+#creditsLabel {
+	position: absolute;
+	top: 95%;
+	left: 2%;
+	font-size: 10px;
+}
+
+#playerCountLabel {
+	position: absolute;
+	left: 24.5%;
+	font-size:40px;
+	font-family: solenza;
+	color: white;
+
+}
+
+#topFraction {
+	font-family: bubble;
+}
+
+#bottomFraction {
+	font-family: bubble;
+
+}
+
+@font-face {
+	font-family: solenza;
+	src: url(fonts/solenza.regular.ttf);
+}
+
+@font-face {
+	font-family: bubble;
+	src: url(fonts/bubbleGarden.ttf);
+}
+
+.actionButtons:hover,
+.actionButtons:focus {
+	background-color: #16437E;
+	color: #ffffff;
+}
+
+.actionButtons:active {
+	background: #09223b;
+	color: rgb(255, 255, 255, .7);
+}
+
+.actionButtons:disabled {
+	cursor: not-allowed;
+	background: rgba(0, 0, 0, .08);
+	color: rgba(0, 0, 0, .3);
+}
